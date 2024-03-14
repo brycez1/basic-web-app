@@ -13,7 +13,7 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.toLowerCase().includes("Which of the following numbers is the largest")) {
+  if (query.toLowerCase().includes("largest")) {
     var arr = query.match(/[0-9]+/g);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
@@ -35,6 +35,10 @@ export default function QueryProcessor(query: string): string {
       return ""
     }
   }
+
+  var isSquare = function (n : number) {
+    return n > 0 && Math.sqrt(n) % 1 === 0;
+  };
 
   return "";
 }
