@@ -14,7 +14,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("largest")) {
-    var arr = query.match(/[0-9]+/g);
+    var arr = query.match(/(\d+)/);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
       return (Math.max(...map1).toString());
@@ -25,7 +25,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("multiplied")) {
-    var arr = query.match(/[0-9]+/g);
+    var arr = query.match(/(\d+)/);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
       const num = map1.reduce((a, b)=> a*b, 1)
