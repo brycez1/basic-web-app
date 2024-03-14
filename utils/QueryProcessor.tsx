@@ -27,7 +27,7 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("multiplied")) {
     var arr = query.match(/\d+/g);
     if (arr != null) {
-      const map1 = arr.map((x) => parseInt(x));
+      const map1 = arr.map(Number)
       const num = map1.reduce((a, b)=> a*b, 1)
       return (num.toString());
     }
@@ -39,7 +39,7 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("plus")) {
     var arr = query.match(/\d+/g);
     if (arr != null) {
-      const map1 = arr.map((x) => parseInt(x));
+      const map1 = arr.map(Number)
       const num = map1.reduce((a, b)=> a+b, 0)
       return (num.toString());
     }
