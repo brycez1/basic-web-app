@@ -14,7 +14,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("largest")) {
-    var arr = query.match(/(\d+)/);
+    var arr = query.match(/\d+/g);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
       return (Math.max(...map1).toString());
@@ -25,7 +25,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("multiplied")) {
-    var arr = query.match(/(\d+)/);
+    var arr = query.match(/\d+/g);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
       const num = map1.reduce((a, b)=> a*b, 1)
@@ -37,7 +37,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("plus")) {
-    var arr = query.match(/(\d+)/);
+    var arr = query.match(/\d+/g);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
       const num = map1.reduce((a, b)=> a+b, 1)
@@ -57,7 +57,7 @@ export default function QueryProcessor(query: string): string {
   };
 
   if (query.toLowerCase().includes("cube")) {
-    var arr = query.match(/(\d+)/);
+    var arr = query.match(/\d+/g);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
       const num = map1.filter((num) => isSquare(num) && isCube(num));
