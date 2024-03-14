@@ -61,7 +61,9 @@ export default function QueryProcessor(query: string): string {
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
       const num = map1.filter((num) => isSquare(num) && isCube(num));
-      return (num[0].toString());
+      if (num) {
+        return (num[0].toString());
+      }
     }
     else {
       return ""
