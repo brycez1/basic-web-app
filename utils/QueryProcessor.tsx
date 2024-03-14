@@ -52,5 +52,21 @@ export default function QueryProcessor(query: string): string {
     return n > 0 && Math.sqrt(n) % 1 === 0;
   };
 
+  var isCube = function (n : number) {
+    return n > 0 && Math.cbrt(n) % 1 === 0;
+  };
+
+  if (query.toLowerCase().includes("cube")) {
+    var arr = query.match(/(\d+)/);
+    if (arr != null) {
+      const map1 = arr.map((x) => parseInt(x));
+      const num = map1.filter((num) => isSquare(num) && isCube(num));
+      return (num[0].toString());
+    }
+    else {
+      return ""
+    }
+  }
+
   return "";
 }
