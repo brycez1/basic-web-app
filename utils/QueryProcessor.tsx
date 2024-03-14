@@ -36,6 +36,18 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("plus")) {
+    var arr = query.match(/(\d+)/);
+    if (arr != null) {
+      const map1 = arr.map((x) => parseInt(x));
+      const num = map1.reduce((a, b)=> a+b, 1)
+      return (num.toString());
+    }
+    else {
+      return ""
+    }
+  }
+
   var isSquare = function (n : number) {
     return n > 0 && Math.sqrt(n) % 1 === 0;
   };
