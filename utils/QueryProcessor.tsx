@@ -16,7 +16,7 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("largest")) {
     var arr = query.match(/\d+/g);
     if (arr != null) {
-      const map1 = arr.map((x) => parseInt(x));
+      const map1 = arr.map(Number)
       return (Math.max(...map1).toString());
     }
     else {
@@ -40,7 +40,7 @@ export default function QueryProcessor(query: string): string {
     var arr = query.match(/\d+/g);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
-      const num = map1.reduce((a, b)=> a+b, 1)
+      const num = map1.reduce((a, b)=> a+b, 0)
       return (num.toString());
     }
     else {
