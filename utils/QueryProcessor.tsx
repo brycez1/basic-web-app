@@ -14,12 +14,6 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("Which of the following numbers is the largest")) {
-    // let matches = query.match(/\d+/g);
-    // if (matches != null) {
-    //   return (
-    //     matches.max();
-    //   );
-    // }
     var arr = query.match(/[0-9]+/g);
     if (arr != null) {
       const map1 = arr.map((x) => parseInt(x));
@@ -30,10 +24,16 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.toLowerCase().includes("70 plus 84?")) {
-    return (
-      "154"
-    );
+  if (query.toLowerCase().includes("multiplied")) {
+    var arr = query.match(/[0-9]+/g);
+    if (arr != null) {
+      const map1 = arr.map((x) => parseInt(x));
+      const num = map1.reduce((a, b)=> a*b, 1)
+      return (num.toString());
+    }
+    else {
+      return ""
+    }
   }
 
   return "";
